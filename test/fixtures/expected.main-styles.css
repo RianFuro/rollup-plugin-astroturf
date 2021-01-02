@@ -1,0 +1,8 @@
+.cls1 { /*!*/ }
+.cls2 {
+composes: cls1;
+
+color: red;
+background-color: blue;
+margin: 0;
+}

@@ -1,0 +1,33 @@
+{
+  "name": "rollup-plugin-astroturf",
+  "version": "0.0.1",
+  "description": "Rollup plugin to integrate astroturf",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha -r esm",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "rollup",
+    "plugin",
+    "astroturf"
+  ],
+  "author": "Florian Proksch <florian.proksch@protonmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "astroturf": "^1.0.0-beta.16",
+    "esm": "^3.2.25",
+    "mocha": "^8.2.1",
+    "rollup": "^2.35.1",
+    "rollup-plugin-postcss": "^4.0.0"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.12.10",
+    "astroturf": "^1.0.0-beta.16",
+    "rollup": "^2.35.1"
+  }
+}

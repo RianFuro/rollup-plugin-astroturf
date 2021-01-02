@@ -38,17 +38,14 @@ export default function astroturf({include, exclude, ...rest} = {}) {
 
 function transform(code, {filename, plugins, ...rest} = {}) {
   plugins = plugins || []
-  const babelOptions = {}
-  const ast = parseSync(code, { ...babelOptions,
+  const ast = parseSync(code, {
     filename,
     plugins: [...plugins],
     caller: {
       name: 'astroturf'
     }
   });
-  const {metadata, code: transformedCode, map} = transformFromAstSync(ast, code, { ...(babelOptions.rootMode ? {
-      rootMode: babelOptions.rootMode
-    } : null),
+  const {metadata, code: transformedCode, map} = transformFromAstSync(ast, code, {
     filename,
     babelrc: false,
     configFile: false,

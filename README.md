@@ -24,34 +24,44 @@ very, but it *SHOULD* work.
 
 ## Usage
 
-*Note*: astroturf expects uncompiled JavaScript code. If you are using babel or Typescript to 
-transform tagged template literals, ensure the plugin runs before babel or typescript loaders.
+*Note*: Astroturf expects uncompiled JavaScript code. If you are using Babel or Typescript to 
+transform tagged template literals, ensure the plugin runs before Babel or Typescript loaders.
 
 ```js
 import { rollup } from 'rollup';
 import astroturf from 'rollup-plugin-astroturf';
+import postcss from 'rollup-plugin-postcss';
 
 rollup({
   entry: 'main.js',
   plugins: [
-    astroturf({/* options */})
+    astroturf({/* options */}),
+    postcss({
+      extract: 'bundle.css',
+      modules: true
+    })
   ]
 }).then(/*...*/)
 ```
 
 ### with jsx
 
-If you're using jsx in your code you need to tell the plugin to interpret jsx (babel does not do that by default). Do
+If you're using jsx in your code you need to tell the plugin to interpret jsx (Babel does not do that by default). Do
 that by installing and including `@babel/plugin-syntax-jsx` like so:
 
 ```js
 import { rollup } from 'rollup';
 import astroturf from 'rollup-plugin-astroturf';
+import postcss from 'rollup-plugin-postcss';
 
 rollup({
   entry: 'main.js',
   plugins: [
-    astroturf({plugins: ['@babel/plugin-syntax-jsx']})
+    astroturf({plugins: ['@babel/plugin-syntax-jsx']}),
+    postcss({
+      extract: 'bundle.css',
+      modules: true
+    })
   ]
 }).then(/*...*/)
 ```
@@ -65,11 +75,13 @@ All options are optional
   picomatch patterns. If `options.include` is omitted or of zero length, the filter defaults to javascript/typescript
   files.
 - `plugins`
-  An array of babel plugins which are passed on to all babel invocations made by the plugin.
+  An array of Babel plugins which are passed on to all Babel invocations made by the plugin.
 - All other options passed in this object are passed on to the underlying astroturf babel plugin. See the 
-  [babel plugin documentation](https://github.com/rollup/plugins/tree/master/packages/babel) and 
-  [astroturfs options](https://github.com/rollup/plugins/tree/master/packages/babel) for details.
+  [Babel plugin documentation](https://github.com/rollup/plugins/tree/master/packages/babel) and 
+  [Astroturf's options](https://github.com/4Catalyzer/astroturf/tree/master#options) for details.
   
   Note though that `writeFiles` is fixed to `false`. Use rollup to control how files are written.
   
-  
+## Attribution
+
+This plugin is heavily inspired by [Linaria's Rollup plugin](https://github.com/callstack/linaria/tree/master/packages/rollup), as it serves a similar purpose.

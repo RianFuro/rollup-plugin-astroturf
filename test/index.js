@@ -11,8 +11,8 @@ describe('rollup-plugin-astroturf', () => {
   it('correctly applies the source code transformation by replacing the tagged template with the parsed classes', () => {
     return act().then(generated => {
       assert.strictEqual(
-        fs.readFileSync('fixtures/expected.main.js').toString('utf-8'),
-        generated.output[0].code)
+        generated.output[0].code,
+        fs.readFileSync('fixtures/expected.main.js').toString('utf-8'))
     })
   })
 
@@ -27,7 +27,9 @@ describe('rollup-plugin-astroturf', () => {
     return act({plugins: [pluginStub]}).then(() => {
       let id = path.join(__dirname, 'fixtures', 'main-styles.css')
       assert.ok(id in sniffedFiles)
-      assert.strictEqual(fs.readFileSync(path.join('fixtures', 'expected.main-styles.css')).toString('utf-8'), sniffedFiles[id])
+      assert.strictEqual(
+        sniffedFiles[id],
+        fs.readFileSync(path.join('fixtures', 'expected.main-styles.css')).toString('utf-8'))
     })
   })
 })

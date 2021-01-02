@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-astroturf",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Rollup plugin to integrate astroturf",
   "main": "./dist/rollup-plugin-astroturf.cjs",
   "exports": {

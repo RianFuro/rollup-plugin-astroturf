@@ -20,7 +20,7 @@ npm i -D rollup-plugin-astroturf
 
 Note that `astroturf`, `rollup` and `@babel/core` are all peer dependencies of this plugin, so you need to install them
 yourself. This plugin has been written against the 1.0.0-beta of astroturf, your mileage with the stable release may
-very, but it *SHOULD* work.
+vary, but it *SHOULD* work.
 
 ## Usage
 
